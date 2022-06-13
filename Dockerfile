@@ -20,7 +20,7 @@ FROM builder as development
 
 CMD ["npm", "run", "dev"]
 
-FROM nginx:1.21.0-alpine as production
+FROM nginx:1.21.6-alpine as production
 
 COPY ./docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /home/node/app/dist/ /srv
