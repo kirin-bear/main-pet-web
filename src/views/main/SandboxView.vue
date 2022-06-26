@@ -5,13 +5,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Sandbox from "@/components/main/Sandbox.vue";
 import LeftMenu from "@/components/main/LeftMenu.vue";
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "SandboxView",
-  components: {LeftMenu, Sandbox}
-}
+  components: {
+    Sandbox,
+    LeftMenu
+  }
+});
 </script>
 
 <style lang="scss">

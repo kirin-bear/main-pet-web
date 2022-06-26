@@ -1,6 +1,15 @@
-<script setup>
+<script lang="ts">
 import LeftMenu from "@/components/main/LeftMenu.vue";
 import Body from "@/components/main/Body.vue";
+
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "SandboxView",
+  components: {
+    Body,
+    LeftMenu
+  }
+});
 </script>
 
 <template>
@@ -15,7 +24,7 @@ import Body from "@/components/main/Body.vue";
   @import "src/assets/variables";
 
   .main-page {
-    background-image: url("src/assets/images/bear.png");
+    background-image: url("@/assets/images/bear.png");
     height: 100vh;
     width: 100%;
     font-family: $font-family;
