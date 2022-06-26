@@ -18,7 +18,7 @@ RUN npm run build-only
 
 FROM builder as development
 
-CMD ["npm", "run", "dev"]
+CMD [ "npm", "run", "preview" ]
 
 FROM nginx:1.21.6-alpine as production
 
