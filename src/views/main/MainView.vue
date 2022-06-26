@@ -15,7 +15,7 @@ import Body from "@/components/main/Body.vue";
   @import "src/assets/variables";
 
   .main-page {
-    background-image: url("public/images/bear.png");
+    background-image: url("src/assets/images/bear.png");
     height: 100vh;
     width: 100%;
     font-family: $font-family;
