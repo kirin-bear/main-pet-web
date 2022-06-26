@@ -29,7 +29,7 @@ export default defineComponent({
     width: 100%;
     font-family: $font-family;
     background-size: cover;
-    background-position-x: right;
+    background-position-x: 75%;
     background-repeat: no-repeat;
   }
 </style>
