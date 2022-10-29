@@ -1,0 +1,51 @@
+{
+  "name": "KirinBear",
+  "short_name": "KirinBear",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F4F4F4",
+  "theme_color": "#F4F4F4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/logos/bear-head-72x72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/assets/logos/bear-head-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/assets/logos/bear-head-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/assets/logos/bear-head-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/assets/logos/bear-head-152x152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "/assets/logos/bear-head-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/logos/bear-head-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/assets/logos/bear-head-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
