@@ -16,7 +16,7 @@ RUN npm install
 
 RUN npm run build-only
 
-FROM builder as development
+FROM builder as local
 
 CMD [ "npm", "run", "preview" ]
 
