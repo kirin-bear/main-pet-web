@@ -43,9 +43,8 @@ export default defineConfig({
   },
   server: {
     hmr: {
-      host: 'localhost',
       port: 3001
     },
     port: 8080
-  }
+  },
 })
