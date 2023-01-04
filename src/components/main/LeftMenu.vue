@@ -68,7 +68,7 @@ export default defineComponent({
 	}
 
 	& &__drawer {
-		min-width: 55%;
+		min-width: 250px;
 
 		.el-drawer__body {
 			padding: 0;
