@@ -3,6 +3,7 @@
 import { register } from 'register-service-worker'
 
 if (import.meta.env.NODE_ENV === 'production') {
+  console.log('----Register Service Worker Start');
   register(`${import.meta.env.BASE_URL}service-worker.js`, {
     ready () {
       console.log(
@@ -28,5 +29,6 @@ if (import.meta.env.NODE_ENV === 'production') {
     error (error) {
       console.error('Error during service worker registration:', error)
     }
-  })
+  });
+  console.log('----Register Service Worker End');
 }
