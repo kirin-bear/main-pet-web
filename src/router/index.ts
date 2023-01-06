@@ -27,8 +27,8 @@ const router = createRouter({
 router.afterEach((to, from) => {
   axios
       .post(import.meta.env.VITE_KIRIN_BEAR_API_URL+'/api/v1/visit', {
-        page_to: to.fullPath,
-        page_from: from.fullPath,
+        referer: location.origin+from.fullPath,
+        page: location.origin+to.fullPath,
       })
       .then(() => {});
 })
