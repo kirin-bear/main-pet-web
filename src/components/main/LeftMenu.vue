@@ -45,8 +45,8 @@ export default defineComponent({
 					</RouterLink>
 				</el-menu-item>
 				<el-menu-item>
-					<RouterLink to="/sandbox">
-						<el-icon><Setting /></el-icon><span>Песочница</span>
+					<RouterLink to="/graph">
+						<el-icon><Platform /></el-icon><span>Вспомнить все</span>
 					</RouterLink>
 				</el-menu-item>
 			</el-menu>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import axios from 'axios';
 import Main from '@/views/main/MainView.vue'
 import Sandbox from '@/views/main/SandboxView.vue'
+import Graph from '@/views/main/GraphView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,6 +11,11 @@ const router = createRouter({
       path: '/',
       name: 'main',
       component: Main
+    },
+    {
+      path: '/graph',
+      name: 'graph',
+      component: Graph
     },
     {
       path: '/sandbox',
