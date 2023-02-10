@@ -19,7 +19,7 @@ function ForceGraph(
     nodeTitle, // given d in nodes, a title string
     nodeFill = "currentColor", // node stroke fill (if not using a group color encoding)
     nodeStroke = "#fff", // node stroke color
-    nodeStrokeWidth = 1.5, // node stroke width, in pixels
+    nodeStrokeWidth = 0.5, // node stroke width, in pixels
     nodeStrokeOpacity = 1, // node stroke opacity
     nodeRadius = 5, // node radius, in pixels
     nodeStrength,
@@ -78,7 +78,6 @@ function ForceGraph(
     .attr("height", height)
     .attr("viewBox", [-width / 2, -height / 2, width, height])
     .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
-
   const link = svg
     .append("g")
     .attr("stroke", typeof linkStroke !== "function" ? linkStroke : null)
@@ -109,6 +108,16 @@ function ForceGraph(
   if (G) node.attr("fill", ({ index: i }) => color(G[i]));
   if (T) node.append("title").text(({ index: i }) => T[i]);
   if (invalidation != null) invalidation.then(() => simulation.stop());
+
+  /*node
+    .append("image")
+    .attr("xlink:href", "http://kirin-bear-web.localhost/src/assets/images/bear.png");
+  node
+    .selectAll("image")
+    .attr("width", 24)
+    .attr("height", 24)
+    .attr("x", -5)
+    .attr("y", -5);*/
 
   function intern(value) {
     return value !== null && typeof value === "object"
@@ -507,8 +516,9 @@ export default {
       nodeGroup: (d) => d.group,
       nodeTitle: (d) => `${d.id}\n${d.group}`,
       linkStrokeWidth: (l) => Math.sqrt(l.value),
-      width: 600,
-      height: 600,
+      width: window.innerWidth,
+      height: window.innerHeight,
+      nodeRadius: 10,
       invalidation, // a promise to stop the simulation when the cell is re-run
     });
     document.getElementById("test").append(chart);
