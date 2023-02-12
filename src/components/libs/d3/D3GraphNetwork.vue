@@ -78,6 +78,44 @@ function ForceGraph(
     .attr("height", height)
     .attr("viewBox", [-width / 2, -height / 2, width, height])
     .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+
+  const defs = svg.append("defs");
+
+  var list = [
+    {
+      code: "imageUrl1",
+      url: "https://img.icons8.com/arcade/512/genie.png",
+    },
+    {
+      code: "imageUrl2",
+      url: "https://img.icons8.com/arcade/512/batman-new.png",
+    },
+    {
+      code: "imageUrl3",
+      url: "https://img.icons8.com/arcade/512/ninja-turtle.png",
+    },
+    {
+      code: "imageUrl4",
+      url: "https://img.icons8.com/arcade/512/spiderman-head.png",
+    },
+  ];
+  var codes = [];
+  for (let image of list) {
+    defs
+      .append("pattern")
+      .attr("height", "100%")
+      .attr("width", "100%")
+      .attr("id", image.code)
+      .attr("patternContentUnits", "objectBoundingBox")
+      .append("image")
+      .attr("height", "1")
+      .attr("width", "1")
+      .attr("href", image.url)
+      .attr("preserveAspectRatio", "xMidYMid slice");
+    codes.push(image.code);
+  }
+  const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
   const link = svg
     .append("g")
     .attr("stroke", typeof linkStroke !== "function" ? linkStroke : null)
@@ -105,7 +143,11 @@ function ForceGraph(
 
   if (W) link.attr("stroke-width", ({ index: i }) => W[i]);
   if (L) link.attr("stroke", ({ index: i }) => L[i]);
-  if (G) node.attr("fill", ({ index: i }) => color(G[i]));
+  if (G)
+    node.attr(
+      "fill",
+      () => "url(#imageUrl" + random(1, codes.length + 1) + ")"
+    );
   if (T) node.append("title").text(({ index: i }) => T[i]);
   if (invalidation != null) invalidation.then(() => simulation.stop());
 
