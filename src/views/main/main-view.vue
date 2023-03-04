@@ -1,10 +1,10 @@
 <script lang="ts">
-import LeftMenu from "@/components/main/LeftMenu.vue";
-import Body from "@/components/main/Body.vue";
+import LeftMenu from "@/components/main/left-menu.vue";
+import Body from "@/components/main/body.vue";
 
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "SandboxView",
+  name: "main-view",
   components: {
     Body,
     LeftMenu

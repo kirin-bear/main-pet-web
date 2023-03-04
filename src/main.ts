@@ -1,8 +1,14 @@
 import { createApp } from 'vue'
+import { createI18n } from 'vue-i18n'
+
+// TODO: научиться подключать два файла локализации
+import localeRu from "@/locale/ru.json";
+type MessageSchema = typeof localeRu;
+
 import { createPinia } from 'pinia'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-import App from './App.vue'
+import App from './app.vue'
 import router from './router'
 import './registerServiceWorker'
 
@@ -12,7 +18,16 @@ const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
+
 app.use(createPinia())
 app.use(router)
+
+// подключение локализации
+app.use(createI18n<[MessageSchema], 'ru'>({
+    locale: 'ru',
+    messages: {
+        ru: localeRu
+    },
+}))
 
 app.mount('#app')

@@ -1,11 +1,11 @@
 <script lang="ts">
-import LeftMenu from "@/components/main/LeftMenu.vue";
-import D3GraphNetwork from "@/components/libs/d3/D3GraphNetwork.vue";
+import LeftMenu from "@/components/main/left-menu.vue";
+import D3GraphNetwork from "@/components/libs/d3/d3-graph-network.vue";
 
 import {defineComponent} from "vue";
 
 export default defineComponent({
-	name: "GraphView",
+	name: "graph-view",
 	components: {
 		LeftMenu,
 		D3GraphNetwork

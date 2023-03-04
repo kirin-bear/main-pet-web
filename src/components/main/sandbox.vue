@@ -1,9 +1,9 @@
 <script lang="ts">
 import {defineComponent, reactive, toRefs, ref} from "vue";
-import type User from "@/types/User";
+import type User from "@/types/user";
 
 export default defineComponent({
-  name: "Sandbox",
+  name: "sandbox",
   setup: function () {
 
     // пример через 1 объект

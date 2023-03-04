@@ -1,0 +1,10 @@
+{
+  "main": {
+    "auth": {
+      "AuthForm": {
+        "email": "Email",
+        "password": "Пароль"
+      }
+    }
+  }
+}

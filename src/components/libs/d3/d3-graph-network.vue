@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="test"></div>
+    <div id="d3-graph-network"></div>
   </div>
 </template>
 
@@ -551,7 +551,7 @@ export default {
     };
   },
   mounted() {
-    document.getElementById("test").innerHTML = "";
+    document.getElementById("d3-graph-network").innerHTML = "";
     var invalidation = undefined;
     var chart = ForceGraph(this.miserables, {
       nodeId: (d) => d.id,
@@ -563,7 +563,7 @@ export default {
       nodeRadius: 10,
       invalidation, // a promise to stop the simulation when the cell is re-run
     });
-    document.getElementById("test").append(chart);
+    document.getElementById("d3-graph-network").append(chart);
   },
 };
 </script>

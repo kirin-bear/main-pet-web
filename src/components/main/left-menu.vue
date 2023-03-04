@@ -3,7 +3,7 @@ import {defineComponent, reactive, toRefs} from "vue";
 import {RouterLink} from "vue-router";
 
 export default defineComponent({
-	name: "LeftMenu",
+	name: "left-menu",
 	setup() {
 
 		const state = reactive({
@@ -39,16 +39,24 @@ export default defineComponent({
 			<el-menu
 				class="el-menu-vertical-demo"
 			>
-				<el-menu-item>
-					<RouterLink to="/">
-						<el-icon><HomeFilled /></el-icon><span>Главная</span>
-					</RouterLink>
-				</el-menu-item>
-				<el-menu-item>
-					<RouterLink to="/graph">
-						<el-icon><Platform /></el-icon><span>Вспомнить все</span>
-					</RouterLink>
-				</el-menu-item>
+        <el-menu-item>
+          <RouterLink to="/">
+            <el-icon><HomeFilled /></el-icon><span>Главная</span>
+          </RouterLink>
+        </el-menu-item>
+        <el-menu-item>
+          <RouterLink to="/graph">
+            <el-icon><Platform /></el-icon><span>Вспомнить всё</span>
+          </RouterLink>
+        </el-menu-item>
+        <el-sub-menu index="1">
+          <template #title>
+            <el-icon><UserFilled /></el-icon><span>Это всё моё</span>
+          </template>
+          <el-menu-item index="1-0">Обо мне</el-menu-item>
+          <el-menu-item index="1-1">Воспоминания</el-menu-item>
+          <el-menu-item index="1-2">Финансы</el-menu-item>
+        </el-sub-menu>
 			</el-menu>
 		</el-drawer>
 	</div>

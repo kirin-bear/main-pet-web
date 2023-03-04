@@ -6,12 +6,12 @@
 </template>
 
 <script lang="ts">
-import Sandbox from "@/components/main/Sandbox.vue";
-import LeftMenu from "@/components/main/LeftMenu.vue";
+import Sandbox from "@/components/main/sandbox.vue";
+import LeftMenu from "@/components/main/left-menu.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "SandboxView",
+  name: "sandbox-view",
   components: {
     Sandbox,
     LeftMenu
