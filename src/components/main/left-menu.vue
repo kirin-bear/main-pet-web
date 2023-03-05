@@ -39,23 +39,29 @@ export default defineComponent({
 			<el-menu
 				class="el-menu-vertical-demo"
 			>
-        <el-menu-item>
+        <el-menu-item class="main__left-menu__item">
           <RouterLink to="/">
             <el-icon><HomeFilled /></el-icon><span>Главная</span>
           </RouterLink>
         </el-menu-item>
-        <el-menu-item>
+        <el-menu-item class="main__left-menu__item">
           <RouterLink to="/graph">
             <el-icon><Platform /></el-icon><span>Вспомнить всё</span>
           </RouterLink>
         </el-menu-item>
-        <el-sub-menu index="1">
+        <el-sub-menu class="main__left-menu__item" index="1">
           <template #title>
             <el-icon><UserFilled /></el-icon><span>Это всё моё</span>
           </template>
-          <el-menu-item index="1-0">Обо мне</el-menu-item>
-          <el-menu-item index="1-1">Воспоминания</el-menu-item>
-          <el-menu-item index="1-2">Финансы</el-menu-item>
+          <el-menu-item class="main__left-menu__item" index="1-0">
+            <RouterLink to="/user/about">Обо мне</RouterLink>
+          </el-menu-item>
+          <el-menu-item class="main__left-menu__item" index="1-1">
+            <RouterLink to="/user/memories">Воспоминания</RouterLink>
+          </el-menu-item>
+          <el-menu-item class="main__left-menu__item" index="1-2">
+            <RouterLink to="/user/finance">Финансы</RouterLink>
+          </el-menu-item>
         </el-sub-menu>
 			</el-menu>
 		</el-drawer>
@@ -89,20 +95,27 @@ export default defineComponent({
 			background: no-repeat url("@/assets/images/logo/bear-head-white-72x72.png");
 			background-size: contain;
 		}
-
-		a {
-			color: #ffffff !important;
-			text-decoration: unset;
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			font-size: 20px;
-
-			> span {
-				margin-left: 10px;
-			}
-		}
 	}
+
+  & &__item {
+
+    * {
+      font-size: 20px;
+    }
+
+    a {
+      color: #ffffff !important;
+      text-decoration: unset;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+      width: 100%;
+    }
+
+    span {
+      margin-left: 10px;
+    }
+  }
 }
 </style>
