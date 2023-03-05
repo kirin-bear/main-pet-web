@@ -3,3 +3,33 @@
     @content;
   }
 }
+
+@mixin forTablet {
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    @content
+  }
+}
+
+@mixin forDesktop {
+  @media only screen and (min-width: 769px) {
+    @content
+  }
+}
+
+@mixin forRetina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content
+  }
+}
+
+@mixin forLandscape {
+  @media only screen and (orientation: landscape) {
+    @content
+  }
+}
+
+@mixin forPortrait {
+  @media only screen and (orientation: portrait) {
+    @content
+  }
+}
