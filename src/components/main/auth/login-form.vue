@@ -29,8 +29,8 @@ export default defineComponent({
   setup: function() {
 
     const form = reactive({
-      email: 'kirin.mzzt@gmail.com' as string,
-      password: 'nthvbnnthvbn' as string,
+      email: '' as string,
+      password: '' as string,
     });
 
     const onSubmit = () => {
