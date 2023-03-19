@@ -7,6 +7,7 @@ import LoginView from "@/views/main/login-view.vue";
 import UserAboutView from "@/views/main/user/about-view.vue";
 import UserMemoriesView from "@/views/main/user/memories-view.vue";
 import UserFinanceView from "@/views/main/user/finance-view.vue";
+import {authMiddleware} from "@/middleware/auth";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,17 +35,26 @@ const router = createRouter({
     {
       path: '/user/about',
       name: 'user-about',
-      component: UserAboutView
+      component: UserAboutView,
+      meta: {
+        requireAuth: true,
+      }
     },
     {
       path: '/user/memories',
       name: 'user-memories',
-      component: UserMemoriesView
+      component: UserMemoriesView,
+      meta: {
+        requireAuth: true,
+      }
     },
     {
       path: '/user/finance',
       name: 'user-finance',
-      component: UserFinanceView
+      component: UserFinanceView,
+      meta: {
+        requireAuth: true,
+      }
     },
     {
       path: '/:pages*',
@@ -55,8 +65,7 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from) => {
-  // TODO: правильнее делать через meta параметры -
-  if (to.path.indexOf('user') !== -1) {
+  if (to.meta.requireAuth && !authMiddleware()) {
     return { name: 'login'};
   }
 });

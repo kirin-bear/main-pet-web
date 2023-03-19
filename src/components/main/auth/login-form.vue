@@ -11,7 +11,7 @@
         <el-input v-model="form.email" />
       </el-form-item>
       <el-form-item :label="$t('main.auth.AuthForm.password')">
-        <el-input v-model="form.password" />
+        <el-input type="password" v-model="form.password" />
       </el-form-item>
       <el-form-item class="main__auth__login-form__el-form__button">
         <el-button type="primary" @click="onSubmit">Войти</el-button>
@@ -22,18 +22,27 @@
 
 <script lang="ts">
 import {defineComponent, reactive} from "vue";
+import axios from "axios";
 
 export default defineComponent({
   name: "login-form",
   setup: function() {
 
     const form = reactive({
-      email: '' as string,
-      password: '' as string,
+      email: 'kirin.mzzt@gmail.com' as string,
+      password: 'nthvbnnthvbn' as string,
     });
 
     const onSubmit = () => {
-      console.log(form)
+		axios
+			.post(import.meta.env.VITE_KIRIN_BEAR_API_URL+'/auth/jwt/login', {
+				email: form.email,
+				password: form.password,
+			})
+			.then((response) => {
+				localStorage.setItem('token', response.data.access_token || '');
+				window.location.pathname = '/user/about';
+			});
     }
 
     return { form, onSubmit };

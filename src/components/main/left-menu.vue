@@ -1,13 +1,17 @@
 <script lang="ts">
 import {defineComponent, reactive, toRefs} from "vue";
 import {RouterLink} from "vue-router";
+import {useAuthStore} from "@/stores/auth";
 
 export default defineComponent({
 	name: "left-menu",
 	setup() {
 
+		const authStore = useAuthStore();
+
 		const state = reactive({
 			isOpened: false as boolean,
+			isAuthenticated: authStore.isAuthenticated as boolean,
 		});
 
 		return { ...toRefs(state) }
@@ -33,36 +37,39 @@ export default defineComponent({
 			direction="ltr"
 			custom-class="main__left-menu__drawer"
 		>
-			<el-divider>
+			<el-divider v-if="!isAuthenticated">
 				<el-icon><div class="main__left-menu__drawer__icon"></div></el-icon>
+			</el-divider>
+			<el-divider v-else>
+				Здарова, отец
 			</el-divider>
 			<el-menu
 				class="el-menu-vertical-demo"
 			>
-        <el-menu-item class="main__left-menu__item">
-          <RouterLink to="/">
-            <el-icon><HomeFilled /></el-icon><span>Главная</span>
-          </RouterLink>
-        </el-menu-item>
-        <el-menu-item class="main__left-menu__item">
-          <RouterLink to="/graph">
-            <el-icon><Platform /></el-icon><span>Вспомнить всё</span>
-          </RouterLink>
-        </el-menu-item>
-        <el-sub-menu class="main__left-menu__item" index="1">
-          <template #title>
-            <el-icon><UserFilled /></el-icon><span>Это всё моё</span>
-          </template>
-          <el-menu-item class="main__left-menu__item" index="1-0">
-            <RouterLink to="/user/about">Обо мне</RouterLink>
-          </el-menu-item>
-          <el-menu-item class="main__left-menu__item" index="1-1">
-            <RouterLink to="/user/memories">Воспоминания</RouterLink>
-          </el-menu-item>
-          <el-menu-item class="main__left-menu__item" index="1-2">
-            <RouterLink to="/user/finance">Финансы</RouterLink>
-          </el-menu-item>
-        </el-sub-menu>
+				<el-menu-item class="main__left-menu__item">
+				  <RouterLink to="/">
+					<el-icon><HomeFilled /></el-icon><span>Главная</span>
+				  </RouterLink>
+				</el-menu-item>
+				<el-menu-item class="main__left-menu__item">
+				  <RouterLink to="/graph">
+					<el-icon><Platform /></el-icon><span>Вспомнить всё</span>
+				  </RouterLink>
+				</el-menu-item>
+				<el-sub-menu class="main__left-menu__item" index="1">
+				  <template #title>
+					<el-icon><UserFilled /></el-icon><span>Это всё моё</span>
+				  </template>
+				  <el-menu-item class="main__left-menu__item" index="1-0">
+					<RouterLink to="/user/about">Обо мне</RouterLink>
+				  </el-menu-item>
+				  <el-menu-item class="main__left-menu__item" index="1-1">
+					<RouterLink to="/user/memories">Воспоминания</RouterLink>
+				  </el-menu-item>
+				  <el-menu-item class="main__left-menu__item" index="1-2">
+					<RouterLink to="/user/finance">Финансы</RouterLink>
+				  </el-menu-item>
+				</el-sub-menu>
 			</el-menu>
 		</el-drawer>
 	</div>
