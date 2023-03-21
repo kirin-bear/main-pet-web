@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <LeftMenu/>
-    <div>Вот тут информация обо мне</div>
-  </div>
+	<div>
+		<LeftMenu/>
+		<About />
+	</div>
 </template>
 
 <script>
 import LeftMenu from "@/components/main/left-menu.vue";
+import About from "@/components/main/user/about.vue";
 
 export default {
-  name: "about-view",
-  components: {
-    LeftMenu
-  }
+	name: "about-view",
+	components: {
+		LeftMenu,
+		About
+	}
 }
 </script>
 
