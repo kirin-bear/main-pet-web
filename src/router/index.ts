@@ -8,6 +8,7 @@ import UserAboutView from "@/views/main/user/about-view.vue";
 import UserMemoriesView from "@/views/main/user/memories-view.vue";
 import UserFinanceView from "@/views/main/user/finance-view.vue";
 import {authMiddleware} from "@/middleware/auth";
+import api from "@/plugins/kirin-bear-api/api";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -71,12 +72,7 @@ router.beforeEach(async (to, from) => {
 });
 
 router.afterEach((to, from) => {
-  axios
-      .post(import.meta.env.VITE_KIRIN_BEAR_API_URL+'/api/v1/visit', {
-        referer: location.origin+from.fullPath,
-        page: location.origin+to.fullPath,
-      })
-      .then(() => {});
+  api.saveVisit(location.origin+to.fullPath, location.origin+from.fullPath);
 })
 
 export default router

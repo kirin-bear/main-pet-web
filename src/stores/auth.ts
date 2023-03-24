@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import api from "@/plugins/kirin-bear-api/api";
 
 interface AuthState {
     token: string,
@@ -7,15 +8,10 @@ interface AuthState {
 export const useAuthStore = defineStore('auth', {
     state: (): AuthState => {
         return {
-            token: localStorage.getItem('token') || '' as string,
+            token: api.getToken() as string,
         }
     },
     getters: {
         isAuthenticated: (state: AuthState): boolean => state.token !== '',
     },
-    actions: {
-        setToken(token: string): void {
-            this.token = token;
-        },
-    }
 });
