@@ -12,12 +12,12 @@ const options: Options = {
     baseUrl: import.meta.env.VITE_KIRIN_BEAR_API_URL
 }
 
-const apiWrapper: AxiosInstance = axios.create({
+const axiosWrapper: AxiosInstance = axios.create({
     baseURL: options.baseUrl,
 });
 
 // в каждый реквест прокидываем токен
-apiWrapper.interceptors.request.use(
+axiosWrapper.interceptors.request.use(
     (config: AxiosRequestConfig) => {
         const token = getToken();
 
@@ -33,17 +33,23 @@ apiWrapper.interceptors.request.use(
 );
 
 // на каждый ответ, проверяем ошибку авторизации
-apiWrapper.interceptors.response.use(
+
+axiosWrapper.interceptors.response.use(
     (response) => {
+        console.log('api response');
+        console.log(response);
         return response;
     },
     (error: AxiosError) => {
+        console.log('api error');
+        console.log(error.response);
         if (error.response && error.response.status === 401) {
             // получаем токен
             const token = getToken();
-
+            console.log('Ошбивка авторизации, попробуем обновить токен');
             // TODO: тут надо обновить токен
         }
+        return Promise.reject(error);
     }
 );
 
@@ -85,14 +91,14 @@ function getToken(): string {
 
 // зададим общий тип нашего плагина
 interface Api {
-    readonly wrapper: AxiosInstance,
+    readonly axios: AxiosInstance,
     saveVisit: (page: string, referer: string) => void,
     auth: (email: string, password: string) => void,
     getToken: () => string,
 }
 
 const api: Api = {
-    wrapper: apiWrapper,
+    axios: axiosWrapper,
     saveVisit: saveVisit,
     auth: auth,
     getToken: getToken,
