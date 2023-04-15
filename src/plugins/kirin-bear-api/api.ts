@@ -6,14 +6,16 @@ interface Options {
     tokenName: string,
     expiresInName: string,
     baseUrl: string,
-    pathToLogin: string
+    pathToLogin: string,
+    timeToRefreshToken: number
 }
 // базовые опции по работе с плагином
 const options: Options = {
     tokenName: 'akb-token',
     expiresInName: 'akb-expires-in',
     baseUrl: import.meta.env.VITE_KIRIN_BEAR_API_URL,
-    pathToLogin: '/login' // пусто на страницу авторизации
+    pathToLogin: '/login', // пусто на страницу авторизации
+    timeToRefreshToken: 120, // указывается в секундах
 }
 
 const axiosWrapper: AxiosInstance = axios.create({
@@ -62,10 +64,7 @@ axiosWrapper.interceptors.response.use(
 function refresh(): void {
     axiosWrapper.post('/auth/jwt/refresh')
         .then(response => {
-            const nowTime: Number = Number((Date.now()/1000));
-
-            localStorage.setItem(options.tokenName, response.data.access_token || '');
-            localStorage.setItem(options.expiresInName, String(nowTime + response.data.expires_in));
+            updateTokenInLocalStorage(response.data.access_token || '', response.data.expires_in);
         })
         .catch(() => {
             // если ошибка при рефреше - просим заново авторизоваться, это значит что токен протух
@@ -79,7 +78,7 @@ function refresh(): void {
  */
 function needRefresh(): Boolean {
     const expiresIn: number = Number.parseInt(localStorage.getItem(options.expiresInName) || '');
-    return expiresIn > 0 && expiresIn - Date.now() / 1000 < 120;
+    return expiresIn > 0 && expiresIn - Date.now() / 1000 < options.timeToRefreshToken;
 }
 
 /**
@@ -106,12 +105,21 @@ function auth(email: string, password: string): void {
         password: password,
     })
     .then((response) => {
-        const nowTime: Number = Number((Date.now()/1000));
-
-        localStorage.setItem(options.tokenName, response.data.access_token || '');
-        localStorage.setItem(options.expiresInName, String(nowTime + response.data.expires_in));
+        updateTokenInLocalStorage(response.data.access_token || '', response.data.expires_in);
         window.location.pathname = '/user/about';
     });
+}
+
+/**
+ * Метод обновления токена в localStorage
+ * @param token
+ * @param expiresIn
+ */
+function updateTokenInLocalStorage(token: string, expiresIn: number): void {
+    const nowTime: Number = Number((Date.now()/1000));
+
+    localStorage.setItem(options.tokenName, token);
+    localStorage.setItem(options.expiresInName, String(nowTime.valueOf() + expiresIn));
 }
 
 /**
