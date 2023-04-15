@@ -69,6 +69,10 @@ router.beforeEach(async (to, from) => {
   if (to.meta.requireAuth && !authMiddleware()) {
     return { name: 'login'};
   }
+  if (to.name === 'login' && authMiddleware()) {
+    return { name: 'user-about'}
+  }
+
 });
 
 router.afterEach((to, from) => {
