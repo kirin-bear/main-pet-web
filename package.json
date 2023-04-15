@@ -19,7 +19,7 @@
     "d3-drag": "^3.0.0",
     "d3-force": "^3.0.0",
     "d3-map": "^1.2.3",
-    "element-plus": "^2.2.5",
+    "element-plus": "^2.2.30",
     "pinia": "^2.0.14",
     "register-service-worker": "^1.7.2",
     "vant": "^3.5.1",

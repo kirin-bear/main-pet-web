@@ -13,16 +13,36 @@ export default defineComponent({
 
 		// присвоим их элементу на странице
 		let email = ref(userInformationStore.email);
+		let id = ref(userInformationStore.id);
 
-		return { email }
+		return { email, id }
 	}
 })
 </script>
 
 <template>
-	<div>Какая-то информация о пользователе {{ email }}</div>
+	<div class="main__about">
+		<el-row>
+			<el-col :span="12">
+				<el-statistic class="main__about__statistic" title="#ID" :value="id" />
+			</el-col>
+			<el-col :span="12">
+				<el-statistic class="main__about__statistic" title="Email" :value="email" />
+			</el-col>
+		</el-row>
+	</div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "src/assets/variables";
 
+.main__about {
+	&__statistic {
+		background-color: $background-color-secondary;
+		padding: 20px;
+		border-radius: 15px;
+		margin-right: 15px;
+		overflow: hidden;
+	}
+}
 </style>

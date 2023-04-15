@@ -13,7 +13,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="main-page">
+  <div>
     <LeftMenu />
     <Body />
   </div>

@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from "unplugin-vue-components/vite";
-import { VantResolver } from "unplugin-vue-components/resolvers";
+import { VantResolver } from "unplugin-vue-components/resolvers"; // для мобильного дизайна
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import IconsResolver from  'unplugin-icons/resolver'
 import Icons from  'unplugin-icons/vite'

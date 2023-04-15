@@ -4,6 +4,7 @@ import api from "@/plugins/kirin-bear-api/api";
 interface UserInformationState {
     email: string,
     name: string,
+    id: number,
 }
 
 export const useUserInformationStore = defineStore('user-information', {
@@ -11,6 +12,7 @@ export const useUserInformationStore = defineStore('user-information', {
         return {
             email: '',
             name: '',
+            id: 0,
         }
     },
     actions: {
@@ -18,14 +20,12 @@ export const useUserInformationStore = defineStore('user-information', {
 
             api.axios.get('/api/v1/user/me')
                 .then(response => {
-                    console.log(response);
+                    this.email = response.data.data.email || '';
+                    this.id = response.data.data.id || 0;
                 })
                 .catch(error => {
-                    console.warn(error);
+                    console.log(error);
                 });
-
-            this.email = 'kz123213';
-            this.name = 'tr';
         }
     }
 })
