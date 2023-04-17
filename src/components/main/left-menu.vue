@@ -35,7 +35,7 @@ export default defineComponent({
 			title="I am the title"
 			:with-header="false"
 			direction="ltr"
-			custom-class="main__left-menu__drawer"
+			class="main__left-menu__drawer"
 		>
 			<el-divider v-if="!isAuthenticated">
 				<el-icon><div class="main__left-menu__drawer__icon"></div></el-icon>
@@ -93,6 +93,10 @@ export default defineComponent({
 
 		.el-drawer__body {
 			padding: 0;
+
+			ul {
+				border: 0;
+			}
 		}
 
 		&__icon {

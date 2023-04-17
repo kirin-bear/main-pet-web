@@ -16,16 +16,14 @@ export const useUserInformationStore = defineStore('user-information', {
         }
     },
     actions: {
-        fetch(): void {
-
-            api.axios.get('/api/v1/user/me')
-                .then(response => {
-                    this.email = response.data.data.email || '';
-                    this.id = response.data.data.id || 0;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+        async fetch(): Promise<void> {
+            try {
+                const response = await api.axios.get('/api/v1/user/me');
+                this.email = response.data.data.email || '';
+                this.id = response.data.data.id || 0;
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 })
