@@ -1,5 +1,5 @@
 <script lang="ts">
-import {defineComponent, onMounted, reactive, ref, watch} from "vue";
+import {defineComponent, reactive} from "vue";
 import {useUserInformationStore} from "@/stores/user-information";
 
 export default defineComponent({
@@ -37,6 +37,9 @@ export default defineComponent({
 
 <template>
 	<div class="main__about">
+		<el-row>
+            <h1>Обо мне</h1>
+		</el-row>
 		<el-row :gutter="15">
 			<el-col :xs="24" :sm="24" :md="12">
 				<div class="main__about__item">
