@@ -8,12 +8,16 @@ export default defineComponent({
 
 		interface UserInformationState {
 			id: number,
-			email: string
+			email: string,
+			notionCountDatabases: number,
+			notionCountPages: number,
 		}
 
 		const userInformationState = reactive<UserInformationState>({
 			id: 0,
-			email: ''
+			email: '',
+			notionCountDatabases: 0,
+			notionCountPages: 0,
 		});
 
 		// подключим store для вывода информации
@@ -25,6 +29,8 @@ export default defineComponent({
 			// после запроса обновляем данные
 			userInformationState.id = userInformationStore.id;
 			userInformationState.email = userInformationStore.email;
+			userInformationState.notionCountDatabases = userInformationStore.notionCountDatabases;
+			userInformationState.notionCountPages = userInformationStore.notionCountPages;
 		}
 
 		// вызываем метод
@@ -51,6 +57,18 @@ export default defineComponent({
 				<div class="main__about__item">
 					<div class="main__about__item__title">Email</div>
 					<div class="main__about__item__value">{{userInformationState.email}}</div>
+				</div>
+			</el-col>
+			<el-col :xs="24" :sm="24" :md="12">
+				<div class="main__about__item">
+					<div class="main__about__item__title">Notion, кол-во БД</div>
+					<div class="main__about__item__value">{{userInformationState.notionCountDatabases}}</div>
+				</div>
+			</el-col>
+			<el-col :xs="24" :sm="24" :md="12">
+				<div class="main__about__item">
+					<div class="main__about__item__title">Notion, кол-во страниц</div>
+					<div class="main__about__item__value">{{userInformationState.notionCountPages}}</div>
 				</div>
 			</el-col>
 		</el-row>

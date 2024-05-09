@@ -37,38 +37,41 @@ export default defineComponent({
 			direction="ltr"
 			class="main__left-menu__drawer"
 		>
-			<el-divider v-if="!isAuthenticated">
+			<el-divider>
 				<el-icon><div class="main__left-menu__drawer__icon"></div></el-icon>
-			</el-divider>
-			<el-divider v-else>
-				Здарова, отец
 			</el-divider>
 			<el-menu
 				class="el-menu-vertical-demo"
 			>
 				<el-menu-item class="main__left-menu__item">
-				  <RouterLink to="/">
-					<el-icon><HomeFilled /></el-icon><span>Главная</span>
-				  </RouterLink>
+					<RouterLink to="/">
+						<el-icon><HomeFilled /></el-icon><span>Главная</span>
+					</RouterLink>
 				</el-menu-item>
-				<el-menu-item class="main__left-menu__item">
-				  <RouterLink to="/graph">
-					<el-icon><Platform /></el-icon><span>Вспомнить всё</span>
-				  </RouterLink>
-				</el-menu-item>
+				<el-sub-menu class="main__left-menu__item">
+					<template #title>
+						<el-icon><MagicStick /></el-icon><span>Frontend</span>
+					</template>
+					<el-menu-item class="main__left-menu__item" index="1-0">
+						<RouterLink to="/frontend/graph">
+							<el-icon><Grape /></el-icon><span>Граф</span>
+						</RouterLink>
+					</el-menu-item>
+				</el-sub-menu>
+
 				<el-sub-menu class="main__left-menu__item" index="1">
-				  <template #title>
-					<el-icon><UserFilled /></el-icon><span>Это всё моё</span>
-				  </template>
-				  <el-menu-item class="main__left-menu__item" index="1-0">
-					<RouterLink to="/user/about">Обо мне</RouterLink>
-				  </el-menu-item>
-				  <el-menu-item class="main__left-menu__item" index="1-1">
-					<RouterLink to="/user/memories">Воспоминания</RouterLink>
-				  </el-menu-item>
-				  <el-menu-item class="main__left-menu__item" index="1-2">
-					<RouterLink to="/user/finance">Финансы</RouterLink>
-				  </el-menu-item>
+					<template #title>
+						<el-icon><UserFilled /></el-icon><span>Кто я?</span>
+					</template>
+					<el-menu-item class="main__left-menu__item" index="1-0">
+						<RouterLink to="/user/about">Обо мне</RouterLink>
+					</el-menu-item>
+					<el-menu-item v-show="isAuthenticated" class="main__left-menu__item" index="1-1">
+						<RouterLink to="/user/memories">Воспоминания</RouterLink>
+					</el-menu-item>
+					<el-menu-item v-show="isAuthenticated" class="main__left-menu__item" index="1-2">
+						<RouterLink to="/user/finance">Финансы</RouterLink>
+					</el-menu-item>
 				</el-sub-menu>
 			</el-menu>
 		</el-drawer>
@@ -108,25 +111,25 @@ export default defineComponent({
 		}
 	}
 
-  & &__item {
+	& &__item {
 
-    * {
-      font-size: 20px;
-    }
+		* {
+			font-size: 20px;
+		}
 
-    a {
-      color: #ffffff !important;
-      text-decoration: unset;
-      display: flex;
-      flex-direction: row;
-      justify-content: left;
-      align-items: center;
-      width: 100%;
-    }
+		a {
+			color: #ffffff !important;
+			text-decoration: unset;
+			display: flex;
+			flex-direction: row;
+			justify-content: left;
+			align-items: center;
+			width: 100%;
+		}
 
-    span {
-      margin-left: 10px;
-    }
-  }
+		span {
+			margin-left: 10px;
+		}
+	}
 }
 </style>

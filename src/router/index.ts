@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import axios from 'axios';
 import MainView from '@/views/main/main-view.vue'
 import SandboxView from '@/views/main/sandbox-view.vue'
 import GraphView from '@/views/main/graph-view.vue'
@@ -19,7 +18,7 @@ const router = createRouter({
       component: MainView
     },
     {
-      path: '/graph',
+      path: '/frontend/graph',
       name: 'graph',
       component: GraphView
     },
