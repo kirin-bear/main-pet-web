@@ -17,4 +17,4 @@ Vue.js 3.0 + TypeScript + Vite
 ## Использование highchart.js
 
 API - https://api.highcharts.com/highcharts/zAxis
-Documentation
+Documentation - https://github.com/highcharts/highcharts-vue?tab=readme-ov-file#requirements
