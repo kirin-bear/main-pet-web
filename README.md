@@ -13,3 +13,8 @@ Vue.js 3.0 + TypeScript + Vite
 - `stores` - список сущностей, с которым работает приложение
 - `types` - описание разных мини типов данных
 - `views` - структура страницы, включающая себя компоненты (что-то на подобии layouts)
+
+## Использование highchart.js
+
+API - https://api.highcharts.com/highcharts/zAxis
+Documentation

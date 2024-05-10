@@ -12,6 +12,10 @@ import App from './app.vue'
 import router from './router'
 import './registerServiceWorker'
 
+import Highcharts from "highcharts";
+import MapInit from "highcharts/modules/map";
+MapInit(Highcharts);
+
 const app = createApp(App)
 
 // регистрируются все иконки

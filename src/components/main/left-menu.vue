@@ -48,13 +48,18 @@ export default defineComponent({
 						<el-icon><HomeFilled /></el-icon><span>Главная</span>
 					</RouterLink>
 				</el-menu-item>
-				<el-sub-menu class="main__left-menu__item">
+				<el-sub-menu class="main__left-menu__item" index="2">
 					<template #title>
 						<el-icon><MagicStick /></el-icon><span>Frontend</span>
 					</template>
-					<el-menu-item class="main__left-menu__item" index="1-0">
+					<el-menu-item class="main__left-menu__item" index="2-0">
 						<RouterLink to="/frontend/graph">
 							<el-icon><Grape /></el-icon><span>Граф</span>
+						</RouterLink>
+					</el-menu-item>
+					<el-menu-item class="main__left-menu__item" index="2-1">
+						<RouterLink to="/frontend/highchart">
+							<el-icon><DataLine /></el-icon><span>Графики</span>
 						</RouterLink>
 					</el-menu-item>
 				</el-sub-menu>

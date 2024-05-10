@@ -1,7 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import MainView from '@/views/main/main-view.vue'
-import SandboxView from '@/views/main/sandbox-view.vue'
-import GraphView from '@/views/main/graph-view.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import MainView from '@/views/main/main-view.vue';
+import SandboxView from '@/views/main/sandbox-view.vue';
+import GraphView from '@/views/main/frontend/graph-view.vue';
+import HighchartView from '@/views/main/frontend/highchart-view.vue';
 import LoginView from "@/views/main/login-view.vue";
 import UserAboutView from "@/views/main/user/about-view.vue";
 import UserMemoriesView from "@/views/main/user/memories-view.vue";
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/frontend/graph',
       name: 'graph',
       component: GraphView
+    },
+    {
+      path: '/frontend/highchart',
+      name: 'highchart',
+      component: HighchartView
     },
     {
       path: '/sandbox',
