@@ -70,6 +70,9 @@ export default defineComponent({
 						17300, 13053, 11906, 10073]
 				}],
 
+				pane: {
+					backgroundColor: 'red',
+				},
 				responsive: {
 					rules: [{
 						condition: {
@@ -93,7 +96,6 @@ export default defineComponent({
 </script>
 
 <template>
-	<h2>Тут будет линейный график</h2>
 	<Chart :options="chartOptions" ref="line-chart"></Chart>
 </template>
 

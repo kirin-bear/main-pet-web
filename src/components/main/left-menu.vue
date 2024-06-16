@@ -45,7 +45,7 @@ export default defineComponent({
 			>
 				<el-menu-item class="main__left-menu__item">
 					<RouterLink to="/">
-						<el-icon><HomeFilled /></el-icon><span>Главная</span>
+						<el-icon><Cpu /></el-icon><span>Главная</span>
 					</RouterLink>
 				</el-menu-item>
 				<el-sub-menu class="main__left-menu__item" index="2">
@@ -66,16 +66,16 @@ export default defineComponent({
 
 				<el-sub-menu class="main__left-menu__item" index="1">
 					<template #title>
-						<el-icon><UserFilled /></el-icon><span>Кто я?</span>
+						<el-icon><HomeFilled /></el-icon><span>Личный кабинет</span>
 					</template>
 					<el-menu-item class="main__left-menu__item" index="1-0">
-						<RouterLink to="/user/about">Обо мне</RouterLink>
-					</el-menu-item>
-					<el-menu-item v-show="isAuthenticated" class="main__left-menu__item" index="1-1">
-						<RouterLink to="/user/memories">Воспоминания</RouterLink>
+						<RouterLink to="/user/about"><el-icon><UserFilled /></el-icon>Обо мне</RouterLink>
 					</el-menu-item>
 					<el-menu-item v-show="isAuthenticated" class="main__left-menu__item" index="1-2">
-						<RouterLink to="/user/finance">Финансы</RouterLink>
+						<RouterLink to="/user/finance"><el-icon><WalletFilled /></el-icon>Финансы</RouterLink>
+					</el-menu-item>
+					<el-menu-item v-show="isAuthenticated" class="main__left-menu__item" index="1-1">
+						<RouterLink to="/user/memories"><el-icon><PictureFilled /></el-icon>Воспоминания</RouterLink>
 					</el-menu-item>
 				</el-sub-menu>
 			</el-menu>

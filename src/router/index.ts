@@ -81,7 +81,7 @@ router.beforeEach(async (to, from) => {
 });
 
 router.afterEach((to, from) => {
-  api.saveVisit(location.origin+to.fullPath, location.origin+from.fullPath);
+  api.visit.save(location.origin+to.fullPath, location.origin+from.fullPath);
 })
 
 export default router

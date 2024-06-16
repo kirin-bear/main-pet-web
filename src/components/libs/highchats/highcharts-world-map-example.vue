@@ -267,7 +267,6 @@ export default defineComponent({
 </script>
 
 <template>
-	<h2>Тут будет карта</h2>
 	<Chart :constructorType="'mapChart'" :options="chartOptions" ref="countries"></Chart>
 </template>
 

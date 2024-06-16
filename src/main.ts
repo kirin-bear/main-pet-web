@@ -13,6 +13,8 @@ import router from './router'
 import './registerServiceWorker'
 
 import Highcharts from "highcharts";
+import HighchartsTheme from "highcharts/themes/high-contrast-dark"
+HighchartsTheme(Highcharts);
 import MapInit from "highcharts/modules/map";
 MapInit(Highcharts);
 

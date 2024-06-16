@@ -1,5 +1,6 @@
 import axios from "axios";
 import type {AxiosInstance, AxiosRequestConfig, AxiosError} from "axios";
+import {VisitService} from "@/plugins/kirin-bear-api/services/visit";
 
 // набор опшионов по работе с плагином
 interface Options {
@@ -49,7 +50,7 @@ axiosWrapper.interceptors.response.use(
     (error: AxiosError) => {
         if (error.response?.status === 401) {
             localStorage.removeItem(options.tokenName);
-            window.location.pathname = options.pathToLogin;
+            reloadPage();
         }
         if (needRefresh()) {
             refresh();
@@ -62,14 +63,15 @@ axiosWrapper.interceptors.response.use(
  * Метод обновления токена
  */
 function refresh(): void {
-    axiosWrapper.post('/auth/jwt/refresh')
+    axios.post(options.baseUrl+'/auth/jwt/refresh')
         .then(response => {
             updateTokenInLocalStorage(response.data.access_token || '', response.data.expires_in);
         })
         .catch(() => {
             // если ошибка при рефреше - просим заново авторизоваться, это значит что токен протух
             localStorage.removeItem(options.tokenName);
-            window.location.pathname = options.pathToLogin;
+
+            reloadPage();
         });
 }
 
@@ -81,19 +83,10 @@ function needRefresh(): Boolean {
     return expiresIn > 0 && expiresIn - Date.now() / 1000 < options.timeToRefreshToken;
 }
 
-/**
- * Метод сохранения посещения страницы
- *
- * @param page
- * @param referer
- */
-function saveVisit(page: string, referer: string): void {
-    axios
-        .post(options.baseUrl+'/api/v1/visit', {
-            referer: referer,
-            page: page,
-        })
-        .then(() => {});
+function reloadPage(): void {
+    if (window.location.pathname !== options.pathToLogin) {
+        window.location.pathname = options.pathToLogin;
+    }
 }
 
 /**
@@ -132,16 +125,16 @@ function getToken(): string {
 // зададим общий тип нашего плагина
 interface Api {
     readonly axios: AxiosInstance,
-    saveVisit: (page: string, referer: string) => void,
     auth: (email: string, password: string) => void,
     getToken: () => string,
+    visit: VisitService,
 }
 
 const api: Api = {
     axios: axiosWrapper,
-    saveVisit: saveVisit,
     auth: auth,
     getToken: getToken,
+    visit: new VisitService(axiosWrapper),
 }
 
 export default api;

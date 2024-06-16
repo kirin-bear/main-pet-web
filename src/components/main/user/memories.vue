@@ -1,5 +1,5 @@
 <script type="ts">
-import D3GraphNetworkV2 from "@/components/libs/d3/d3-graph-network-v2.vue";
+import D3GraphNetworkV2 from "@/components/libs/d3/d3-graph-network.vue";
 import {defineComponent, ref} from "vue";
 import {useMemoriesStore} from "@/stores/memories/memory";
 import {useMemoriesLinksStore} from "@/stores/memories/memory-link";
