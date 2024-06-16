@@ -1,6 +1,7 @@
 import axios from "axios";
 import type {AxiosInstance, AxiosRequestConfig, AxiosError} from "axios";
-import {VisitService} from "@/plugins/kirin-bear-api/services/visit";
+import {Visit} from "@/plugins/kirin-bear-api/services/visit";
+import {Finance} from "@/plugins/kirin-bear-api/services/finance";
 
 // набор опшионов по работе с плагином
 interface Options {
@@ -8,6 +9,7 @@ interface Options {
     expiresInName: string,
     baseUrl: string,
     pathToLogin: string,
+    pathAfterLogin: string,
     timeToRefreshToken: number
 }
 // базовые опции по работе с плагином
@@ -16,6 +18,7 @@ const options: Options = {
     expiresInName: 'akb-expires-in',
     baseUrl: import.meta.env.VITE_KIRIN_BEAR_API_URL,
     pathToLogin: '/login', // пусто на страницу авторизации
+    pathAfterLogin: '/user/about', // после авторизации - куда перенаправлять
     timeToRefreshToken: 120, // указывается в секундах
 }
 
@@ -99,7 +102,7 @@ function auth(email: string, password: string): void {
     })
     .then((response) => {
         updateTokenInLocalStorage(response.data.access_token || '', response.data.expires_in);
-        window.location.pathname = '/user/about';
+        window.location.pathname = options.pathAfterLogin;
     });
 }
 
@@ -127,14 +130,16 @@ interface Api {
     readonly axios: AxiosInstance,
     auth: (email: string, password: string) => void,
     getToken: () => string,
-    visit: VisitService,
+    visit: Visit,
+    finance: Finance
 }
 
 const api: Api = {
     axios: axiosWrapper,
     auth: auth,
     getToken: getToken,
-    visit: new VisitService(axiosWrapper),
+    visit: new Visit(axiosWrapper),
+    finance: new Finance(axiosWrapper)
 }
 
 export default api;

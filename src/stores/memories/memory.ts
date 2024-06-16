@@ -28,7 +28,7 @@ export const useMemoriesStore = defineStore('memories', {
                     })
                 });
             } catch (error) {
-
+                console.error(error);
             }
         }
     }

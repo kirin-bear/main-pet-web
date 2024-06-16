@@ -1,6 +1,6 @@
 import type {AxiosInstance} from "axios";
 
-export class VisitService {
+export class Visit {
 
     readonly axiosWrapper: AxiosInstance;
 
