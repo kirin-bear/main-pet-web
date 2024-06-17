@@ -18,13 +18,15 @@ export const useInvoiceMonthStore = defineStore('invoice-month', {
         };
     },
     actions: {
-        async fetch(): Promise<void> {
+        async fetch(type: string): Promise<void> {
             try {
-                const response = await api.finance.get();
+                const response = await api.finance.get(type);
 
                 if (response === undefined) {
                     return ;
                 }
+
+                this.list = [];
 
                 response.data.data.forEach((element: {name: string, month: string, count:number}): void => {
                     this.list.push({

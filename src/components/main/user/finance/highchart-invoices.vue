@@ -1,13 +1,23 @@
 <script lang="ts">
-import {defineComponent, ref} from 'vue'
-import {useInvoiceMonthStore} from "@/stores/finance/invoice-month";
+import {defineComponent, ref} from "vue";
 import HighchartsLineChart from "@/components/libs/highchats/highcharts-line-chart.vue";
-import type Series from '@/components/libs/highchats/types/series';
+import {useInvoiceMonthStore} from "@/stores/finance/invoice-month";
+import type Series from "@/components/libs/highchats/types/series";
 
 export default defineComponent({
-	name: "finance",
+	name: "highchart-invoices",
+	props: {
+		type: {
+			type: String,
+			required: true,
+		},
+		title: {
+			type: String,
+			required: true,
+		}
+	},
 	components: {HighchartsLineChart},
-	setup: function () {
+	setup: function (props) {
 
 		const invoiceMonthsStore = useInvoiceMonthStore();
 
@@ -17,9 +27,9 @@ export default defineComponent({
 		const seriesData: any|undefined[][] = [];
 		const series: Series[] = [];
 
-		async function fetchInvoiceMonths() {
+		async function fetchInvoiceMonths(type: string) {
 
-			await invoiceMonthsStore.fetch();
+			await invoiceMonthsStore.fetch(type);
 			invoiceMonthsStore.list.forEach((invoiceMonth) => {
 
 				let indexXAxis = xAxisValues.indexOf(invoiceMonth.month);
@@ -55,18 +65,17 @@ export default defineComponent({
 			loading.value = false;
 		}
 
-		fetchInvoiceMonths();
+		fetchInvoiceMonths(props.type);
 
 		return {xAxisValues, loading, series}
 	}
-})
+});
 </script>
 
 <template>
-	<div class="main__user__finance" v-loading="loading">
-		<h1>Мои финансы</h1>
+	<div class="main__user__finance__highchart">
 		<HighchartsLineChart v-if="!loading" :highcharts-options="{
-			title: 'Итоги',
+			title: title,
 			yAxisTitle: 'Рубли',
 			xAxisValues: xAxisValues,
 			series: series,
@@ -74,6 +83,8 @@ export default defineComponent({
 	</div>
 </template>
 
-<style scoped>
-
+<style lang="scss">
+	.main__user__finance__highchart {
+		margin-bottom: 21px;
+	}
 </style>

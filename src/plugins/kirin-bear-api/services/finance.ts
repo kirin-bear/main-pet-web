@@ -6,9 +6,9 @@ export class Finance {
         this.axiosWrapper = axiosInstance;
     }
 
-    public get(): Promise<AxiosResponse<any>>|undefined {
+    public get(type: string): Promise<AxiosResponse<any>>|undefined {
         try {
-            return this.axiosWrapper.get('/api/v1/finance/invoice-month');
+            return this.axiosWrapper.get('/api/v1/finance/invoice-month?type='+type);
         } catch (e) {
             console.error(e)
         }
