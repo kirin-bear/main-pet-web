@@ -5,7 +5,7 @@ import { RouterView } from 'vue-router'
 
 <template>
 	<div class="app-kirin-bear-web layout">
-		<RouterView />
+		<RouterView ref="router-view" />
 	</div>
 </template>
 
@@ -17,12 +17,12 @@ body {
 	margin: 0;
 }
 .layout {
-	background-image: url("@/assets/images/bear.png");
+	background-image: url("@/assets/images/bear-space-mars.png");
 	height: 100vh;
 	width: 100%;
 	font-family: $font-family;
 	background-size: cover;
-	background-position-x: 75%;
+	background-position: 50%;
 	background-repeat: no-repeat;
 	padding: 65px 17px 0 17px;
 	box-sizing: border-box;

@@ -45,19 +45,19 @@ axiosWrapper.interceptors.request.use(
 // на каждый ответ, проверяем ошибку авторизации
 axiosWrapper.interceptors.response.use(
     (response) => {
-        if (needRefresh()) {
-            refresh();
-        }
+        //if (needRefresh()) {
+        //    refresh();
+        //}
         return response;
     },
     (error: AxiosError) => {
         if (error.response?.status === 401) {
             localStorage.removeItem(options.tokenName);
-            reloadPage();
+            goToLogin();
         }
-        if (needRefresh()) {
-            refresh();
-        }
+        //if (needRefresh()) {
+        //    refresh();
+        //}
         return Promise.reject(error);
     }
 );
@@ -74,7 +74,7 @@ function refresh(): void {
             // если ошибка при рефреше - просим заново авторизоваться, это значит что токен протух
             localStorage.removeItem(options.tokenName);
 
-            reloadPage();
+            goToLogin();
         });
 }
 
@@ -83,10 +83,11 @@ function refresh(): void {
  */
 function needRefresh(): Boolean {
     const expiresIn: number = Number.parseInt(localStorage.getItem(options.expiresInName) || '');
+    console.log(expiresIn);
     return expiresIn > 0 && expiresIn - Date.now() / 1000 < options.timeToRefreshToken;
 }
 
-function reloadPage(): void {
+function goToLogin(): void {
     if (window.location.pathname !== options.pathToLogin) {
         window.location.pathname = options.pathToLogin;
     }

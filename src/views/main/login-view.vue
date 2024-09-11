@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <LeftMenu />
-    <LoginForm/>
-  </div>
+	<div>
+		<LeftMenu />
+		<LoginForm/>
+	</div>
 </template>
 
 <script lang="ts">
@@ -11,11 +11,11 @@ import LeftMenu from "@/components/main/left-menu.vue";
 import LoginForm from "@/components/main/auth/login-form.vue";
 
 export default defineComponent({
-  name: 'login-view',
-  components: {
-    LoginForm,
-    LeftMenu
-  }
+	name: 'login-view',
+	components: {
+		LoginForm,
+		LeftMenu
+	}
 })
 </script>
 

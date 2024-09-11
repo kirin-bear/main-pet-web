@@ -1,0 +1,41 @@
+
+.print-effect {
+    position: relative;
+    width: 100%;
+    height: 100px; /* Высота блока для печати */
+    overflow: hidden; /* Скрываем текст за пределами блока */
+    font-size: 24px; /* Размер шрифта */
+    line-height: 100%; /* Линейный интервал */
+    white-space: nowrap; /* Текст в одну строку */
+    animation: print 5s linear infinite; /* Анимация печати */
+}
+
+.print-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.print-cursor {
+    position: relative;
+    display: inline-block;
+    animation: cursor 500ms steps(1) infinite; /* Анимация курсора */
+}
+
+@keyframes print {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes cursor {
+    0%, 100% {
+        border-right-color: transparent;
+    }
+    50% {
+        border-right-color: black;
+    }
+}

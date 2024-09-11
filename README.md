@@ -16,5 +16,8 @@ Vue.js 3.0 + TypeScript + Vite
 
 ## Использование highchart.js
 
-API - https://api.highcharts.com/highcharts/zAxis
-Documentation - https://github.com/highcharts/highcharts-vue?tab=readme-ov-file#requirements
+- API - https://api.highcharts.com/highcharts/zAxis
+- Documentation - https://github.com/highcharts/highcharts-vue?tab=readme-ov-file#requirements
+
+## Ссылки по использованию компонентов
+- Bootstrap Icons - https://icons.getbootstrap.com/
