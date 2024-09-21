@@ -24,7 +24,6 @@ body {
 	background-size: cover;
 	background-position: 50%;
 	background-repeat: no-repeat;
-	padding: 65px 17px 0 17px;
 	box-sizing: border-box;
 }
 </style>

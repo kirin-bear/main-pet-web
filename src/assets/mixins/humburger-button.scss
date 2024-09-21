@@ -52,7 +52,7 @@ $hamburger-button-color: #ffffff !default;
 }
 
 .hamburger-button{
-  @include btn(0px, 0);
+  @include btn(9px, 9px);
 
   .icon-left {
     @include icon(8px, 30px);

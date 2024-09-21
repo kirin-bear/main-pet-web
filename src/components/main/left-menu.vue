@@ -1,6 +1,6 @@
 <script lang="ts">
 import {defineComponent, reactive, toRefs} from "vue";
-import {RouterLink} from "vue-router";
+
 import {useAuthStore} from "@/stores/auth";
 
 export default defineComponent({
@@ -46,6 +46,11 @@ export default defineComponent({
 				<el-menu-item class="main__left-menu__item">
 					<RouterLink to="/">
 						<el-icon><Cpu /></el-icon><span>Главная</span>
+					</RouterLink>
+				</el-menu-item>
+				<el-menu-item class="main__left-menu__item">
+					<RouterLink :to="{name: 'works'}">
+						<el-icon><Suitcase /></el-icon><span>Примеры работ</span>
 					</RouterLink>
 				</el-menu-item>
 				<el-sub-menu class="main__left-menu__item" index="2">

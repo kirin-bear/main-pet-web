@@ -1,22 +1,21 @@
 <script lang="ts">
 import LeftMenu from "@/components/main/left-menu.vue";
-import Memories from "@/components/main/user/memories.vue";
+import Works from "@/components/main/works/works.vue";
+
 import {defineComponent} from "vue";
 
 export default defineComponent({
-	name: "memories-view",
+	name: "works-view",
 	components: {
-		Memories,
-		LeftMenu
-	}
+		Works,
+		LeftMenu,
+	},
 })
 </script>
 
 <template>
-	<div>
-		<LeftMenu />
-		<Memories />
-	</div>
+	<LeftMenu />
+	<Works />
 </template>
 
 <style scoped>

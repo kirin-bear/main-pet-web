@@ -47,6 +47,23 @@ export default defineComponent({
 			<div class="main__welcome__description__profession">
 				Fullstack web-developer
 			</div>
+			<div class="main__welcome__description__navigation">
+				<div class="main__welcome__description__navigation__item">
+					<RouterLink :to="{name: 'works'}">
+						<span>Примеры работ</span>
+					</RouterLink>
+				</div>
+				<div class="main__welcome__description__navigation__item">
+					<RouterLink :to="{name: 'works'}">
+						<span>Опыт работы</span>
+					</RouterLink>
+				</div>
+				<div class="main__welcome__description__navigation__item">
+					<RouterLink :to="{name: 'user-about'}">
+						<span>Личный кабинет</span>
+					</RouterLink>
+				</div>
+			</div>
 <!--			<div>Таймер с первого дня разработки (аля опыт)</div>-->
 <!--			<div>Таймер с официальной работы в разработке (аля опыт)</div>-->
 <!--			<div>PHP // VUE // MySQL // ClickHouse</div>-->
@@ -79,13 +96,14 @@ export default defineComponent({
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 80vh;
+		height: 90vh;
 		flex-direction: column;
 		align-content: center;
 
 		&__title {
 			text-transform: uppercase;
 			font-size: 50px;
+			font-weight: 900;
 		}
 
 		&__description {
@@ -93,7 +111,35 @@ export default defineComponent({
 
 			&__profession {
 				text-transform: uppercase;
-				font-size: 50px;
+				font-size: 35px;
+			}
+
+			&__navigation {
+				display: flex;
+				align-content: center;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				margin: 20px 0;
+
+				&__item {
+					margin: 0 10px;
+					border-bottom: 1px solid transparent;
+
+					&:hover {
+						border-bottom: 1px solid white;
+					}
+
+					& > a {
+						text-decoration: none;
+						color: white;
+						text-transform: uppercase;
+
+						&:hover {
+							cursor: pointer;
+						}
+					}
+				}
 			}
 
 			&__socials {

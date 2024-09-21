@@ -7,6 +7,7 @@ import LoginView from "@/views/main/login-view.vue";
 import UserAboutView from "@/views/main/user/about-view.vue";
 import UserMemoriesView from "@/views/main/user/memories-view.vue";
 import UserFinanceView from "@/views/main/user/finance-view.vue";
+import WorksView from "@/views/main/works-view.vue";
 import {authMiddleware} from "@/middleware/auth";
 import api from "@/plugins/kirin-bear-api/api";
 
@@ -22,6 +23,11 @@ const router = createRouter({
       path: '/frontend/graph',
       name: 'graph',
       component: GraphView
+    },
+    {
+      path: '/works',
+      name: 'works',
+      component: WorksView
     },
     {
       path: '/frontend/highchart',
