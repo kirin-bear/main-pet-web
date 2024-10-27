@@ -14,10 +14,10 @@ export default defineComponent({
 	<div class="main__user__finance">
 		<h1>Мои финансы</h1>
 		<HighchartInvoices title="Общее" type="general" />
-		<HighchartInvoices title="%" type="general_percent" />
-		<HighchartInvoices title="Категории" type="category" />
-		<HighchartInvoices title="Постоянные" type="fixed" />
-		<HighchartInvoices title="Ситуационные" type="dynamic" />
+		<HighchartInvoices title="%" type="percentage_of_income" />
+		<HighchartInvoices title="Категории" type="expense_category_type" />
+		<HighchartInvoices title="Постоянные" type="expense_fixed_category" />
+		<HighchartInvoices title="Ситуационные" type="expense_dynamic_category" />
 	</div>
 </template>
 

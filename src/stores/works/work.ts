@@ -56,6 +56,11 @@ export const useWorksStore = defineStore('works', {
                     type: Type.PROJECT
                 },
                 {
+                    title: 'Синхронизация личных финансов из Notion через Яндекс.Алису',
+                    customer: Customer.KIRIN,
+                    type: Type.PROJECT
+                },
+                {
                     title: 'D3',
                     customer: Customer.KIRIN,
                     type: Type.TOOL
@@ -64,6 +69,11 @@ export const useWorksStore = defineStore('works', {
                     title: 'Highcharts',
                     customer: Customer.KIRIN,
                     type: Type.TOOL
+                },
+                {
+                    title: 'Приложение Wiki',
+                    customer: Customer.SMARTIS,
+                    type: Type.PROJECT
                 },
             ]
         };
