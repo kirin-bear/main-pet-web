@@ -36,6 +36,7 @@ export const useInvoiceMonthStore = defineStore('invoice-month', {
                     })
                 });
             } catch (error) {
+                // показываем ошибку
                 console.error(error);
             }
         }
