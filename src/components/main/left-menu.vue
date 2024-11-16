@@ -49,7 +49,7 @@ export default defineComponent({
 					</RouterLink>
 				</el-menu-item>
 				<el-menu-item class="main__left-menu__item">
-					<RouterLink :to="{name: 'works'}">
+					<RouterLink :to="{name: 'projects'}">
 						<el-icon><Suitcase /></el-icon><span>Примеры работ</span>
 					</RouterLink>
 				</el-menu-item>

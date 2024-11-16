@@ -1,13 +1,13 @@
 <script lang="ts">
 import LeftMenu from "@/components/main/left-menu.vue";
-import Works from "@/components/main/works/works.vue";
+import Projects from "@/components/main/projects/projects.vue";
 
 import {defineComponent} from "vue";
 
 export default defineComponent({
-	name: "works-view",
+	name: "projects-view",
 	components: {
-		Works,
+		Projects,
 		LeftMenu,
 	},
 })
@@ -15,7 +15,7 @@ export default defineComponent({
 
 <template>
 	<LeftMenu />
-	<Works />
+	<Projects />
 </template>
 
 <style scoped>
