@@ -20,33 +20,47 @@ export default defineComponent({
 			<el-divider/>
 		</div>
 		<div class="main__project-about__body">
-			<h2>Цели проекта</h2>
+			<h2>🥅 Цели проекта</h2>
 			<div>{{ project.goal}}</div>
-			<h2>Роль и обязанности</h2>
+			<el-divider />
+			<h2>📝 Описание проекта</h2>
+			<div> Заказчик: {{ project.customer }}</div><br>
+			<div>{{ project.description }}</div>
+			<el-divider />
+			<h2>👥 Команда</h2>
+			<ul>
+				<li v-for="roleCount in project.team">{{ roleCount.count }} {{ roleCount.role }}</li>
+			</ul>
+			<el-divider />
+			<h2>🧑‍💻 Роль и обязанности</h2>
 			<p><b>Роль:</b> {{ project.role }}</p>
 			<div><b>Обязанности:</b></div>
 			<ul>
 				<li v-for="responsibility in project.responsibilities">{{ responsibility }}</li>
 			</ul>
-			<h2>Команда</h2>
-			<ul>
-				<li v-for="roleCount in project.team">{{ roleCount.count }} {{ roleCount.role }}</li>
-			</ul>
-			<h2>Потраченное время</h2>
-			<div>{{ project.estimatedDays }} дней</div>
-			<h2>Технологии</h2>
+			<el-divider />
+			<h2>🛠 Технологии</h2>
 			<ul>
 				<li v-for="technology in project.technologies">{{ technology }}</li>
 			</ul>
-			<h2>Описание проекта</h2>
-			<div>{{ project.description }}</div>
-			<h2>Сложности и решения</h2>
+			<el-divider />
+			<h2>⌛️ Затраченное время</h2>
+			<div>{{ project.estimatedDays }} дней</div>
+			<el-divider />
+			<h2>⁉️ Сложности и решения</h2>
 			<ul>
 				<li v-for="solutions in project.solutions">{{ solutions }}</li>
 			</ul>
 		</div>
 	</div>
 </template>
+<style lang="scss">
+.main__project-about {
 
-<style scoped lang="scss">
+	&__header {
+		& h1 {
+			margin-top: 0;
+		}
+	}
+}
 </style>

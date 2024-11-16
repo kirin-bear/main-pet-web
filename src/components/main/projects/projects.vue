@@ -52,7 +52,7 @@ export default defineComponent({
 								</div>
 							</template>
 							<div class="main__projects__list__card__body">
-								<div class="main__projects__list__card__body__goal"><b>Цель: </b>{{ project.goal }}</div>
+								<div class="main__projects__list__card__body__goal">{{ project.description }}</div>
 							</div>
 							<template #footer>Footer content</template>
 						</el-card>
@@ -60,7 +60,7 @@ export default defineComponent({
 				</el-row>
 		</el-col>
 	</el-row>
-	<el-drawer v-model="projectIsOpened" title="I am the title" :with-header="false">
+	<el-drawer :show-close="true" class="main__drawer__project-about" v-model="projectIsOpened" :with-header="true">
 		<project-about :project="projectSelected" />
 	</el-drawer>
 </template>
@@ -127,6 +127,36 @@ export default defineComponent({
 			}
 		}
 	}
+}
 
+@import 'src/assets/mixins/media';
+
+@include forNotMobile() {
+	.main__drawer__project-about {
+		& .el-drawer__header {
+			display: none;
+		}
+	}
+}
+
+@include forMobile() {
+	.main__drawer__project-about {
+		width: 100% !important;
+
+		& .el-drawer__close-btn > i {
+			width: 36px;
+			height: 36px;
+			color: white;
+
+			& svg {
+				height: 2em;
+				width: 2em;
+			}
+		}
+
+		& > div {
+			padding-top: 0;
+		}
+	}
 }
 </style>
