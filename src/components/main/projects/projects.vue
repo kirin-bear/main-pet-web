@@ -3,7 +3,8 @@ import {defineComponent, ref} from 'vue'
 import {useProjectStore} from "@/stores/projects/store";
 import {
 	BIconPersonCircle,
-	BIconGearFill
+	BIconGearFill,
+	BIconTools
 } from "bootstrap-icons-vue";
 import ProjectAbout from "@/components/main/projects/project-about.vue";
 import type Project from "@/stores/projects/types/project";
@@ -13,7 +14,8 @@ export default defineComponent({
 	components: {
 		ProjectAbout,
 		BIconPersonCircle,
-		BIconGearFill
+		BIconGearFill,
+		BIconTools
 	},
 	setup: function () {
 
@@ -46,8 +48,7 @@ export default defineComponent({
 										<span @click="openProject(project)">{{ project.title }}</span>
 									</div>
 									<div class="main__projects__list__card__header__tags">
-										<el-tag type="warning"><BIconPersonCircle  /><span>{{ project.customer}}</span></el-tag>
-										<el-tag type="warning"><BIconGearFill  /><span>{{ project.type}}</span></el-tag>
+										<el-tag v-for="technology in project.technologies" type="warning">{{ technology }}</el-tag>
 									</div>
 								</div>
 							</template>

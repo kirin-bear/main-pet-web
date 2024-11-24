@@ -20,10 +20,10 @@ export default defineComponent({
 			<el-divider/>
 		</div>
 		<div class="main__project-about__body">
-			<h2>🥅 Цели проекта</h2>
+			<h2>🥅 Цели</h2>
 			<div>{{ project.goal}}</div>
 			<el-divider />
-			<h2>📝 Описание проекта</h2>
+			<h2>📝 Описание</h2>
 			<div> Заказчик: {{ project.customer }}</div><br>
 			<div>{{ project.description }}</div>
 			<el-divider />
@@ -49,7 +49,7 @@ export default defineComponent({
 			<el-divider />
 			<h2>⁉️ Сложности и решения</h2>
 			<ul>
-				<li v-for="solutions in project.solutions">{{ solutions }}</li>
+				<li style="margin-bottom: 10px" v-for="solutions in project.solutions">{{ solutions }}</li>
 			</ul>
 		</div>
 	</div>

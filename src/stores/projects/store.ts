@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import type Project from "@/stores/projects/types/project";
-import {Customer, Responsibility, Role, Technology, Type} from "@/stores/projects/enums";
+import {Customer, Responsibility, Role, Technology} from "@/stores/projects/enums";
 
 interface ProjectStore {
     list: Project[]
@@ -13,7 +13,6 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'Микроконверсии',
                     customer: Customer.SMARTIS,
-                    type: Type.PROJECT,
                     goal: 'Отслеживать поведение пользователей, которые ещё не совершили ключевых целевых действий на сайте клиента (звонок или заявка) и просмотр этих данных в интерфейсе.',
                     role: Role.SENIOR_WEB_DEVELOPER,
                     responsibilities: [
@@ -48,14 +47,14 @@ export const useProjectStore = defineStore('projects', {
                     ],
                 },
                 {
-                    title: 'Анализ обращений на фрод',
+                    title: 'Анализ обращений на антифрод',
                     customer: Customer.SMARTIS,
-                    type: Type.PROJECT,
-                    goal: '',
+                    goal: 'Объективно клиенту оценивать рекламные инструменты – какие из них приводят реальных покупателей, а какие лишь имитируют поведение целевых клиентов',
                     role: Role.SENIOR_WEB_DEVELOPER,
                     responsibilities: [
                         Responsibility.DESIGN_ARCHITECTURE,
                         Responsibility.CODING,
+                        Responsibility.CODE_REVIEW,
                         Responsibility.TESTING,
                     ],
                     team: [
@@ -69,13 +68,15 @@ export const useProjectStore = defineStore('projects', {
                         Technology.VUE_JS_2,
                         Technology.REDIS,
                     ],
-                    description: '',
-                    solutions: [],
+                    description: 'Автоматизированный алгоритм, который оценивает процент вероятности фрода у обращений клиента, на основе поведения клиента (среди всех данных в продукте Smartis)',
+                    solutions: [
+                        'Реализация ежедневного фонового процесса для анализа фрода по методикам описанных заказчиками (пример: у клиента имеется N сессий - 10% фрода или, у клиента 25 звонков, все они меньше 30 сек - 100% фрод.)',
+                        'Реализация методик через очереди (Jobs by Laravel)'
+                    ],
                 },
                 {
                     title: 'Автоматизация биллинга',
                     customer: Customer.SMARTIS,
-                    type: Type.PROJECT,
                     goal: '',
                     role: Role.MIDDLE_WEB_DEVELOPER,
                     responsibilities: [
@@ -105,7 +106,6 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'REST API для личного кабинета омниканальной системы',
                     customer: Customer.COMAGIC,
-                    type: Type.PROJECT,
                     goal: '',
                     role: Role.SENIOR_WEB_DEVELOPER,
                     responsibilities: [
@@ -139,7 +139,6 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'Минусация в рекламных кабинетах',
                     customer: Customer.SMARTIS,
-                    type: Type.PROJECT,
                     goal: '--',
                     role: Role.SENIOR_WEB_DEVELOPER,
                     responsibilities: [
@@ -164,7 +163,6 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'Pet-проект',
                     customer: Customer.KIRIN,
-                    type: Type.PROJECT,
                     goal: '',
                     role: Role.PRODUCT_OWNER,
                     responsibilities: [
@@ -193,7 +191,6 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'Синхронизация личных финансов из Notion через Яндекс.Алису',
                     customer: Customer.KIRIN,
-                    type: Type.PROJECT,
                     goal: '',
                     role: Role.SENIOR_WEB_DEVELOPER,
                     responsibilities: [
@@ -217,7 +214,6 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'D3',
                     customer: Customer.KIRIN,
-                    type: Type.TOOL,
                     goal: '',
                     role: Role.SENIOR_WEB_DEVELOPER,
                     responsibilities: [
@@ -238,7 +234,6 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'Highcharts',
                     customer: Customer.KIRIN,
-                    type: Type.TOOL,
                     goal: '',
                     role: Role.SENIOR_WEB_DEVELOPER,
                     responsibilities: [
@@ -259,7 +254,6 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'Приложение для продуктовой документации',
                     customer: Customer.SMARTIS,
-                    type: Type.PROJECT,
                     goal: '',
                     role: Role.SENIOR_WEB_DEVELOPER,
                     responsibilities: [

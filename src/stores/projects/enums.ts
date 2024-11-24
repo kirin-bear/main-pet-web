@@ -1,8 +1,3 @@
-export enum Type {
-    PROJECT = 'Проект',
-    TOOL = 'Инструмент'
-}
-
 export enum Customer {
     SMARTIS = 'Smartis',
     KIRIN = 'Kirin',
@@ -29,7 +24,8 @@ export enum Responsibility {
     DESIGN_ARCHITECTURE = 'Дизайн архитектуры',
     TESTING = 'Тестирование',
     PRESENTATION = 'Презентация менеджерам',
-    DOCUMENTATION = 'Документация'
+    DOCUMENTATION = 'Документация',
+    CODE_REVIEW = 'Code review'
 }
 
 export enum Technology {
