@@ -26,4 +26,8 @@ body {
 	background-repeat: no-repeat;
 	box-sizing: border-box;
 }
+.scroll-full-height {
+	height: 100vh;
+	overflow: scroll;
+}
 </style>

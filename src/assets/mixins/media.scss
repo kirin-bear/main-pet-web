@@ -4,6 +4,12 @@
   }
 }
 
+@mixin forNotMobile {
+  @media only screen and (min-width: 480px) {
+    @content;
+  }
+}
+
 @mixin forTablet {
   @media only screen and (min-width: 481px) and (max-width: 768px) {
     @content

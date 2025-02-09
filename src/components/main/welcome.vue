@@ -49,12 +49,12 @@ export default defineComponent({
 			</div>
 			<div class="main__welcome__description__navigation">
 				<div class="main__welcome__description__navigation__item">
-					<RouterLink :to="{name: 'works'}">
+					<RouterLink :to="{name: 'projects'}">
 						<span>Примеры работ</span>
 					</RouterLink>
 				</div>
 				<div class="main__welcome__description__navigation__item">
-					<RouterLink :to="{name: 'works'}">
+					<RouterLink :to="{name: 'projects'}">
 						<span>Опыт работы</span>
 					</RouterLink>
 				</div>
