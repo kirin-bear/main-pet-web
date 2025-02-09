@@ -67,8 +67,9 @@ export const useProjectStore = defineStore('projects', {
                         Technology.PHP_7_4,
                         Technology.VUE_JS_2,
                         Technology.REDIS,
+                        Technology.LARAVEL_5_7,
                     ],
-                    description: 'Автоматизированный алгоритм, который оценивает процент вероятности фрода у обращений клиента, на основе поведения клиента (среди всех данных в продукте Smartis)',
+                    description: 'Автоматизированный алгоритм, который оценивает процент вероятности фрода у обращений клиента, на основе поведения клиента',
                     solutions: [
                         'Реализация ежедневного фонового процесса для анализа фрода по методикам описанных заказчиками (пример: у клиента имеется N сессий - 10% фрода или, у клиента 25 звонков, все они меньше 30 сек - 100% фрод.)',
                         'Реализация методик через очереди (Jobs by Laravel)'
@@ -77,7 +78,7 @@ export const useProjectStore = defineStore('projects', {
                 {
                     title: 'Автоматизация биллинга',
                     customer: Customer.SMARTIS,
-                    goal: '',
+                    goal: 'Автоматизировать процессы выставления счетов клиентам за использование продукта',
                     role: Role.MIDDLE_WEB_DEVELOPER,
                     responsibilities: [
                         Responsibility.DESIGN_ARCHITECTURE,
@@ -279,6 +280,58 @@ export const useProjectStore = defineStore('projects', {
                     description: '',
                     solutions: [],
                 },
+                {
+                    title: 'Переезд системы автоматизации звонков на нового поставщика услуг',
+                    customer: Customer.SMARTIS,
+                    goal: 'Снизить расходы на поддержку звонков',
+                    role: Role.SENIOR_WEB_DEVELOPER,
+                    responsibilities: [
+                        Responsibility.DESIGN_ARCHITECTURE,
+                        Responsibility.CODING,
+                        Responsibility.TESTING,
+                        Responsibility.DOCUMENTATION,
+                        Responsibility.PRESENTATION,
+                    ],
+                    team: [
+                        { role: Role.PRODUCT_OWNER, count: 1},
+                        { role: Role.SENIOR_WEB_DEVELOPER, count: 1},
+                    ],
+                    estimatedDays: 60,
+                    technologies: [
+                        Technology.PHP_7_4,
+                        Technology.MYSQL_5_7,
+                        Technology.LARAVEL_5_7,
+                    ],
+                    description: '',
+                    solutions: [],
+                },
+                {
+                    title: 'API для управления выдачи топлива на заправках',
+                    customer: Customer.KONDOR_OIL,
+                    goal: '',
+                    role: Role.SENIOR_WEB_DEVELOPER,
+                    responsibilities: [
+                        Responsibility.DESIGN_ARCHITECTURE,
+                        Responsibility.CODING,
+                        Responsibility.TESTING,
+                        Responsibility.DOCUMENTATION,
+                    ],
+                    team: [
+                        { role: Role.PRODUCT_OWNER, count: 1},
+                        { role: Role.SENIOR_WEB_DEVELOPER, count: 1},
+                        { role: Role.MIDDLE_WEB_DEVELOPER, count: 1},
+                        { role: Role.MOBILE_DEVELOPER, count: 1},
+                    ],
+                    estimatedDays: 60,
+                    technologies: [
+                        Technology.PHP_8_2,
+                        Technology.MARIADB,
+                        Technology.LARAVEL_11,
+                        Technology.FLUTTER,
+                    ],
+                    description: '',
+                    solutions: [],
+                }
             ]
         };
     },

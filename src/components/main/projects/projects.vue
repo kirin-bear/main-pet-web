@@ -35,7 +35,7 @@ export default defineComponent({
 </script>
 
 <template>
-	<el-row class="row-bg" justify="space-evenly">
+	<el-row class="row-bg scroll-full-height" justify="space-evenly">
 		<el-col :span="12" :xs="24" class="main__projects">
 			<h1>Примеры работ</h1>
 			<el-divider />

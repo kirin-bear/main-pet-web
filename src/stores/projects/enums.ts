@@ -1,11 +1,13 @@
 export enum Customer {
     SMARTIS = 'Smartis',
     KIRIN = 'Kirin',
-    COMAGIC = 'Comagic'
+    COMAGIC = 'Comagic',
+    KONDOR_OIL = 'Kondor Oil'
 }
 
 export enum Role {
     SENIOR_WEB_DEVELOPER = 'Senior Web-developer',
+    MOBILE_DEVELOPER = 'Mobile developer',
     TEAM_LEAD = 'Team Lead',
     SENIOR_DATABASE_DEVELOPER = 'Senior Database Developer',
     MIDDLE_FRONT_DEVELOPER = 'Middle Front-Developer',
@@ -33,9 +35,11 @@ export enum Technology {
     TYPE_SCRIPT = 'TypeScript',
     MYSQL_5_7 = 'MySQL 5.7',
     MYSQL_8 = 'MySQL 8',
+    MARIADB = 'MariaDB',
     CLICKHOUSE = 'Clickhouse',
     PHP_7_4 = 'PHP 7.4',
     PHP_8_1 = 'PHP 8.1',
+    PHP_8_2 = 'PHP 8.2',
     PHP_8_3 = 'PHP 8.3',
     VUE_JS_2 = 'Vue.js 2',
     VUE_JS_3 = 'Vue.js 3',
@@ -44,6 +48,7 @@ export enum Technology {
     LARAVEL_8 = 'Laravel 8',
     LARAVEL_9 = 'Laravel 9',
     LARAVEL_10 = 'Laravel 10',
+    LARAVEL_11 = 'Laravel 11',
     BOOKSTACK = 'Bookstack',
     REACT_JS = 'React JS',
     POSTGRESQL_12 = 'PostgreSQL 12',
@@ -52,5 +57,6 @@ export enum Technology {
     PYTHON_3 = 'Python 3',
     REDIS = 'Redis',
     RABBITMQ = 'RabbitMQ',
+    FLUTTER = 'Flutter',
 }
 
